@@ -1,0 +1,113 @@
+{
+  "name": "openspec-viewer",
+  "displayName": "OpenSpec Viewer · Personal",
+  "description": "Visor local de cambios, especificaciones y contexto OpenSpec para cualquier proyecto.",
+  "version": "0.3.2",
+  "publisher": "fdelvalle01",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "vscode": "^1.110.0",
+    "node": ">=22.14.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.cjs",
+  "extensionKind": [
+    "workspace"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": false
+  },
+  "activationEvents": [
+    "workspaceContains:openspec/config.yaml",
+    "workspaceContains:openspec/config.yml"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "sddWorkspaceViewer.open",
+        "title": "Abrir visor",
+        "category": "OpenSpec Viewer"
+      },
+      {
+        "command": "sddWorkspaceViewer.demo",
+        "title": "Abrir demo local",
+        "category": "OpenSpec Viewer"
+      },
+      {
+        "command": "sddWorkspaceViewer.selectRoot",
+        "title": "Elegir carpeta S0",
+        "category": "OpenSpec Viewer"
+      },
+      {
+        "command": "sddWorkspaceViewer.openPath",
+        "title": "Abrir S0 por ruta",
+        "category": "OpenSpec Viewer"
+      },
+      {
+        "command": "sddWorkspaceViewer.refresh",
+        "title": "Actualizar visor",
+        "category": "OpenSpec Viewer"
+      }
+    ],
+    "configuration": {
+      "title": "OpenSpec Viewer · Personal",
+      "properties": {
+        "sddWorkspaceViewer.readingSize": {
+          "type": "number",
+          "enum": [
+            14,
+            15,
+            16
+          ],
+          "default": 15,
+          "description": "Tamaño del texto de lectura, en píxeles. No cambia los archivos de S0."
+        },
+        "sddWorkspaceViewer.surfaces": {
+          "type": "string",
+          "enum": [
+            "editor",
+            "personal"
+          ],
+          "enumDescriptions": [
+            "Usar las superficies del tema de VS Code.",
+            "Usar las superficies del tema personal."
+          ],
+          "default": "editor",
+          "description": "Superficies del visor. El alto contraste respeta siempre el tema del editor."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/model.test.mjs tests/scale.test.mjs tests/extension.test.mjs tests/markdown.test.mjs tests/root-selection.test.mjs tests/identity.test.mjs tests/knowledge.test.mjs tests/graph-layout.test.mjs tests/distribution.test.mjs",
+    "test:ui": "node scripts/test-ui.mjs",
+    "test:host": "node scripts/test-host.mjs",
+    "package": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package.ps1",
+    "verify:vendor": "node scripts/verify-vendor.mjs",
+    "vscode:prepublish": "npm run build"
+  },
+  "dependencies": {
+    "markdown-it": "15.0.2",
+    "mermaid": "12.0.0"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "4.0.0",
+    "esbuild": "0.28.2",
+    "playwright": "1.63.0"
+  },
+  "overrides": {
+    "lodash-es": "4.18.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fdelvalle01/sdd-openspec-view.git"
+  }
+}

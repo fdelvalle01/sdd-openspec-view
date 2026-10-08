@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "system": "demo",
+  "simulation": true,
+  "description": "Componentes ficticios de la demo; no son repositorios remotos ni ubicaciones reales.",
+  "repositories": [
+    {
+      "id": "catalog-web",
+      "url": "https://example.com/demo/catalog-web.git",
+      "role": "Interfaz de consulta y ficha de recursos",
+      "requiredFor": []
+    },
+    {
+      "id": "catalog-api",
+      "url": "https://example.com/demo/catalog-api.git",
+      "role": "Servicio de consulta del catálogo",
+      "requiredFor": []
+    },
+    {
+      "id": "catalog-data",
+      "url": "https://example.com/demo/catalog-data.git",
+      "role": "Datos de ejemplo para el catálogo",
+      "requiredFor": []
+    }
+  ]
+}

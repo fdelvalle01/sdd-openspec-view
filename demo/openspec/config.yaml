@@ -1,0 +1,7 @@
+schema: spec-driven
+
+context: |
+  SIMULACIÓN: catálogo de recursos de un equipo ficticio.
+  Esta carpeta sirve únicamente para probar OpenSpec Viewer local.
+  Los documentos y casillas no acreditan implementación ni aprobación.
+  El contexto del proyecto está en docs/project.md.

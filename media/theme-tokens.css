@@ -1,0 +1,124 @@
+/* Local theme tokens for OpenSpec Viewer. Load before view.css. */
+
+
+body {
+  /* Tipografía */
+  --os-font-ui: var(--vscode-font-family, system-ui), sans-serif;
+  --os-font-mono: var(--vscode-editor-font-family, ui-monospace), monospace;
+  --os-font-serif: Georgia, serif;
+  --os-fs-ui: 13px;        /* interfaz */
+  --os-fs-read: 14px;      /* lectura, line-height 1.7 */
+  --os-fs-label: 11px;     /* overline: 700, uppercase, letter-spacing .05em */
+  --os-fs-mono: 12px;      /* rutas e identificadores (11.5–12.5) */
+  --os-fs-min: 11px;       /* nada por debajo de esto */
+
+  /* Forma */
+  --os-radius: 12px 2px 12px 2px; /* botones, tarjetas, campos */
+  --os-radius-base: 4px;          /* tablas, código, menús, diálogos */
+  --os-radius-pill: 9999px;       /* etiquetas de estado/alcance */
+
+  /* Medidas */
+  --os-sidebar-w: 240px;
+  --os-rail-w: 48px;
+  --os-bar-h: 38px;        /* toolbarBarHeight */
+  --os-control-h: 32px;    /* toolbarControlHeight */
+  --os-row-h: 32px;        /* rowHeightDense */
+  --os-status-h: 30px;     /* statusBarHeight */
+
+  /* Espaciado 4/8/12/16/24/32 */
+  --os-s1: 4px; --os-s2: 8px; --os-s3: 12px; --os-s4: 16px; --os-s5: 24px; --os-s6: 32px;
+}
+
+/* Oscuro (principal) */
+body.vscode-dark, body:not([class*="vscode-"]) {
+  color-scheme: dark;
+  --os-frame: #060606;     /* surface.chrome: título, explorador, barra de estado */
+  --os-bg: #0C0C0C;        /* background.default */
+  --os-paper: #121212;     /* background.paper: lectura */
+  --os-head: #161616;      /* gridHeaderBg: encabezados de tabla, barra de diagrama */
+  --os-input: #171717;     /* surface.input: búsqueda, código */
+  --os-band: #1C1C1C;      /* surfaceBand: tarjetas de estado, siguiente paso */
+  --os-c2: #242424;        /* surface.container */
+  --os-selected: #2C2C2C;  /* surface.containerHigh: selección */
+  --os-text: #E8E8E8;
+  --os-text2: #9C9C9C;
+  --os-outline: #3A3A3A;
+  --os-divider: #282828;
+  --os-brand: #FF4A0D;     /* marca, riel activo, pestaña activa */
+  --os-accent-text: #FF4A0D; /* 5,5:1 sobre #121212 */
+  --os-button: #C93400;    /* primary.dark; blanco 5,3:1 (blanco sobre #FF4A0D = 3,4:1, no apto) */
+  --os-button-text: #FFFFFF;
+  --os-ok: #0ECB81;        /* health ok, siempre acompañado de texto */
+  --os-error: #F6465D;
+  --os-focus: #FF4A0D;
+  --os-scrim: rgba(0, 0, 0, .72);
+}
+
+/* Claro */
+body.vscode-light {
+  color-scheme: light;
+  --os-frame: #FFFFFF;
+  --os-bg: #F8F9FF;
+  --os-paper: #FFFFFF;
+  --os-head: #EFF4FF;
+  --os-input: #FFFFFF;
+  --os-band: #EFF4FF;
+  --os-c2: #E5EEFF;
+  --os-selected: #DCE9FF;
+  --os-text: #0B1C30;
+  --os-text2: #5E3F38;     /* 9,4:1 sobre blanco */
+  --os-outline: #936F66;
+  --os-divider: #E8BDB3;
+  --os-brand: #FF3700;     /* solo marcas no textuales (3,6:1) */
+  --os-accent-text: #B22400; /* primary.main, 6,7:1 */
+  --os-button: #B22400;
+  --os-button-text: #FFFFFF;
+  --os-ok: #16A34A;
+  --os-error: #BA1A1A;
+  --os-focus: #B22400;
+  --os-scrim: rgba(11, 28, 48, .45);
+}
+
+/* Alto contraste: el tema de VS Code manda */
+body.vscode-high-contrast, body.vscode-high-contrast-light {
+  --os-frame: var(--vscode-sideBar-background, #000);
+  --os-bg: var(--vscode-editor-background, #000);
+  --os-paper: var(--vscode-editor-background, #000);
+  --os-head: var(--vscode-editor-background, #000);
+  --os-input: var(--vscode-input-background, #000);
+  --os-band: var(--vscode-editor-background, #000);
+  --os-c2: var(--vscode-editor-background, #000);
+  --os-selected: var(--vscode-list-activeSelectionBackground, #000);
+  --os-text: var(--vscode-foreground, #FFF);
+  --os-text2: var(--vscode-foreground, #FFF);
+  --os-outline: var(--vscode-contrastBorder, #FFF);
+  --os-divider: var(--vscode-contrastBorder, #FFF);
+  --os-brand: var(--vscode-contrastActiveBorder, #F38518);
+  --os-accent-text: var(--vscode-textLink-foreground, #FF6A38);
+  --os-button: var(--vscode-button-background, #FF6A38);
+  --os-button-text: var(--vscode-button-foreground, #000);
+  --os-ok: #0ECB81;
+  --os-error: var(--vscode-errorForeground, #F6465D);
+  --os-focus: var(--vscode-focusBorder, #F38518);
+  --os-scrim: rgba(0, 0, 0, .85);
+}
+
+/* Puente con las variables actuales de media/view.css (reemplaza el bloque inicial de body) */
+body {
+  --surface: var(--os-paper);
+  --sidebar: var(--os-frame);
+  --foreground: var(--os-text);
+  --muted: var(--os-text2);
+  --subtle: var(--os-text2);
+  --border: var(--os-divider);
+  --hover: var(--os-band);
+  --selection: var(--os-selected);
+  --selection-text: var(--os-text);
+  --accent: var(--os-brand);
+  --focus: var(--os-focus);
+  --code-surface: var(--os-input);
+  --radius: 4px;
+  font-family: var(--os-font-ui);
+}
+
+:focus-visible { outline: 2px solid var(--os-focus); outline-offset: 2px; }

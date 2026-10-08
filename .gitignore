@@ -1,0 +1,8 @@
+node_modules/
+dist/
+media/view.js
+media/view.js.map
+artifacts/
+.local/
+*.vsix
+!openspec-viewer-0.3.2.vsix

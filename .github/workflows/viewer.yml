@@ -1,0 +1,52 @@
+name: Validate and package viewer
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  viewer:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22.18.0'
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Verify vendored engine
+        run: npm run verify:vendor
+      - name: Unit tests
+        run: npm test
+      - name: Build bundles
+        run: npm run build
+      - name: Interface tests in Edge
+        run: npm run test:ui
+      - name: Package, inspect and record provenance
+        run: ./scripts/package.ps1
+      - name: Upload inspected package and provenance
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: openspec-viewer-${{ github.sha }}
+          path: |
+            artifacts/*.vsix
+            artifacts/*.manifest.json
+          if-no-files-found: error
+      - name: Upload interface test report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: viewer-ui-report-${{ github.sha }}
+          path: .local/ui/v2-report.json
+          include-hidden-files: true
+          if-no-files-found: ignore

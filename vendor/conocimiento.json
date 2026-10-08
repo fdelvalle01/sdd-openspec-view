@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/fdelvalle01/sdd-workspace",
+  "sourceCommit": "37b0f7876bcb25f9308cbb3cd82b54c0ea052474",
+  "sourceDirectory": "Plantilla/scripts/conocimiento",
+  "sourceTree": "9a5f9f22f10881b548606edc9fefdfa47740c737",
+  "localDirectory": "scripts/conocimiento",
+  "byteIdentical": true,
+  "extractedAt": "2026-10-08",
+  "viewerOrigin": {
+    "sourceDirectory": "View-OpenSpec",
+    "sourceTree": "ee9281fb5d611ec21fd47fd09e92aa925955d370",
+    "version": "0.3.2"
+  },
+  "files": [
+    {
+      "path": "cli.mjs",
+      "bytes": 6919,
+      "sha256": "147b75c874264d2f437f4aa1ff22b57a92accf5e4558e186c9aac95e43faf6b3",
+      "gitBlob": "a91e7805055780bc130f0433820796bbebfb41e4"
+    },
+    {
+      "path": "filesystem.mjs",
+      "bytes": 8083,
+      "sha256": "2b1db742038ecfd2bcffb579c4fb74847d2cc950209e51b3c696cd0a2aa6b3bf",
+      "gitBlob": "9f90a644d6eb437aa92ee07a038eae791a1e42e0"
+    },
+    {
+      "path": "index.mjs",
+      "bytes": 20477,
+      "sha256": "2eb10bacc5f48acb3ffac085e98309a22c5ce53c2fad8e21fd56c0a160eb8b3c",
+      "gitBlob": "d0bda82e317d4dc8dd6e48a8939d6f4c51494ded"
+    },
+    {
+      "path": "markdown.mjs",
+      "bytes": 10484,
+      "sha256": "3dccd2fdaff383a4a9f761b148003150d1484dfe1dd27ab265f026da081c9046",
+      "gitBlob": "3e83f990fcd634d74370530c62f897dc9741b729"
+    },
+    {
+      "path": "moves.mjs",
+      "bytes": 18549,
+      "sha256": "1ba8c301f2d24e19c5c5cbe6329425462266672cf3cdd2eefa50925fd2e4a07c",
+      "gitBlob": "ce5c8da15e7eb7b50a2f0e22482f83e928d30334"
+    }
+  ]
+}

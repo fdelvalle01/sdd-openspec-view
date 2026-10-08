@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/fdelvalle01/sdd-workspace",
+  "sourceCommit": "e7d669fa8305e7b69bb030b00bedb10d21b23a9f",
+  "sourceDirectory": "View-OpenSpec",
+  "knowledgeDirectory": "Plantilla/scripts/conocimiento",
+  "knowledgeSourceTree": "9a5f9f22f10881b548606edc9fefdfa47740c737",
+  "extension": "fdelvalle01.openspec-viewer@0.3.0",
+  "package": {
+    "sha256": "a2305b1c0aa5bc5f52595688c933f03e04b3012091da027c8cb5ccfea82c31eb",
+    "file": "openspec-viewer-0.3.0.vsix",
+    "bytes": 1689363
+  },
+  "lockfileSha256": "36f5e5fa842b7809575e7cef821219b41b4540721d2c024784c32d23f644ea2f",
+  "nodeVersion": "v22.18.0",
+  "workflowRun": null,
+  "contents": [
+    {
+      "bytes": 634,
+      "path": "[Content_Types].xml"
+    },
+    {
+      "bytes": 2525,
+      "path": "extension.vsixmanifest"
+    },
+    {
+      "bytes": 2425,
+      "path": "extension/changelog.md"
+    },
+    {
+      "bytes": 704,
+      "path": "extension/demo/docs/INDICE.md"
+    },
+    {
+      "bytes": 1247,
+      "path": "extension/demo/docs/project.md"
+    },
+    {
+      "bytes": 427,
+      "path": "extension/demo/openspec/changes/archive/2026-09-15-catalog-detail/design.md"
+    },
+    {
+      "bytes": 424,
+      "path": "extension/demo/openspec/changes/archive/2026-09-15-catalog-detail/proposal.md"
+    },
+    {
+      "bytes": 442,
+      "path": "extension/demo/openspec/changes/archive/2026-09-15-catalog-detail/specs/catalog/spec.md"
+    },
+    {
+      "bytes": 366,
+      "path": "extension/demo/openspec/changes/archive/2026-09-15-catalog-detail/tasks.md"
+    },
+    {
+      "bytes": 935,
+      "path": "extension/demo/openspec/changes/catalog-search/design.md"
+    },
+    {
+      "bytes": 1049,
+      "path": "extension/demo/openspec/changes/catalog-search/proposal.md"
+    },
+    {
+      "bytes": 802,
+      "path": "extension/demo/openspec/changes/catalog-search/specs/catalog/spec.md"
+    },
+    {
+      "bytes": 566,
+      "path": "extension/demo/openspec/changes/catalog-search/tasks.md"
+    },
+    {
+      "bytes": 630,
+      "path": "extension/demo/openspec/changes/export-summary/proposal.md"
+    },
+    {
+      "bytes": 286,
+      "path": "extension/demo/openspec/config.yaml"
+    },
+    {
+      "bytes": 1151,
+      "path": "extension/demo/openspec/specs/catalog/spec.md"
+    },
+    {
+      "bytes": 723,
+      "path": "extension/demo/repositorios.json"
+    },
+    {
+      "bytes": 310993,
+      "path": "extension/dist/extension.cjs"
+    },
+    {
+      "bytes": 163219,
+      "path": "extension/dist/THIRD-PARTY-NOTICES.txt"
+    },
+    {
+      "bytes": 6003,
+      "path": "extension/docs/prueba-manual.md"
+    },
+    {
+      "bytes": 2535,
+      "path": "extension/docs/relaciones-0.3.0.md"
+    },
+    {
+      "bytes": 10125,
+      "path": "extension/docs/validacion.md"
+    },
+    {
+      "bytes": 482,
+      "path": "extension/media/icon.svg"
+    },
+    {
+      "bytes": 3630,
+      "path": "extension/media/reading-tokens.css"
+    },
+    {
+      "bytes": 4725,
+      "path": "extension/media/theme-tokens.css"
+    },
+    {
+      "bytes": 64836,
+      "path": "extension/media/view.css"
+    },
+    {
+      "bytes": 5374712,
+      "path": "extension/media/view.js"
+    },
+    {
+      "bytes": 3191,
+      "path": "extension/package.json"
+    },
+    {
+      "bytes": 8583,
+      "path": "extension/readme.md"
+    }
+  ],
+  "sourceTree": "64aacd78d52860a781e02b4c45e8702e35f2e96c",
+  "verification": {
+    "date": "2026-10-08",
+    "platform": "win32",
+    "nodeVersion": "v22.18.0",
+    "method": "Committed source; pinned dependencies; unit tests, Edge UI, isolated VS Code host; package inspected with the committed workflow step.",
+    "unit": {
+      "passed": 86,
+      "failed": 0,
+      "skipped": 0
+    },
+    "interface": {
+      "passed": 27,
+      "failed": 0,
+      "browser": "Microsoft Edge",
+      "productionBundle": true
+    },
+    "host": {
+      "passed": 16,
+      "failed": 0,
+      "isolatedProfile": true
+    },
+    "knowledge": {
+      "passed": 30,
+      "failed": 0,
+      "sharedSourceTree": "9a5f9f22f10881b548606edc9fefdfa47740c737"
+    },
+    "inheritance": {
+      "generatedS0": true,
+      "ownDependencies": true,
+      "cliWithoutViewer": true
+    },
+    "limitations": "Local Windows execution; no remote CI or human acceptance claimed. Explicit scope budgets and partial coverage apply. Semantic changes during OpenSpec sync require reconciliation; repair never reverses archive/sync or rewrites previous history."
+  }
+}

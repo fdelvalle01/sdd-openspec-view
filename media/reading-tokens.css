@@ -1,0 +1,87 @@
+/* Reading roles for the personal viewer. Load after theme-tokens.css and before view.css. */
+
+body {
+  /* Lectura */
+  --os-fs-read: 15px;
+  --os-lh-read: 1.7;
+  --os-measure: 74ch;
+
+  /* Roles de delta (derivados, misma disciplina que statusTokensFor): añadido ← up, modificado ← brand, eliminado ← down */
+  --os-add: var(--os-ok);
+  --os-mod: var(--os-brand);
+  --os-rem: var(--os-error);
+
+  /* Tinte de acento (ACCENT_TINT_DARK) para resaltado de búsqueda y opción activa del control segmentado */
+  --os-tint: rgba(255, 74, 13, .12);
+  /* Canal del control segmentado (SegmentedControl.tsx) */
+  --os-trough: rgba(255, 255, 255, .045);
+
+  /* Escala tipográfica (local + un paso de lectura) */
+  --os-fs-11: 11px;  /* solo etiquetas en mayúsculas (overline) y teclas */
+  --os-fs-12: 12px;  /* metadatos, rutas, notas */
+  --os-fs-13: 13px;  /* interfaz, botones */
+  --os-fs-14: 14px;  /* body1, H4 */
+  --os-fs-16: 16px;  /* H3, títulos de tarjeta */
+  --os-fs-20: 20px;  /* H2 · heading serif */
+  --os-fs-24: 24px;  /* título de HU · heading serif */
+  --os-fs-28: 28px;  /* H1 del documento, nombre del S0 · heading serif */
+
+  /* Tecla (Kbd.tsx) */
+  --os-kbd-min-w: 30px;
+  --os-kbd-h: 22px;
+  /* Valid fallbacks while the host theme/configuration is arriving. */
+  --os-editor-frame: #060606;
+  --os-editor-paper: #121212;
+  --os-editor-band: #1C1C1C;
+  --os-editor-input: #171717;
+  --os-editor-selected: #2C2C2C;
+  --os-editor-text: #E8E8E8;
+  --os-editor-text2: #9C9C9C;
+  --os-editor-divider: #282828;
+}
+
+body[data-read="14"] { --os-fs-read: 14px; }
+body[data-read="15"] { --os-fs-read: 15px; }
+body[data-read="16"] { --os-fs-read: 16px; }
+
+/* Claro personal · lectura: el divisor pasa a surface.containerHighest (token existente); outline #936F66 se mantiene para controles */
+body.vscode-light {
+  --os-divider: #D3E4FE;
+  --os-tint: rgba(255, 55, 0, .12);
+  --os-trough: rgba(0, 0, 0, .045);
+  --os-editor-frame: #FFFFFF;
+  --os-editor-paper: #FFFFFF;
+  --os-editor-band: #EFF4FF;
+  --os-editor-input: #FFFFFF;
+  --os-editor-selected: #DCE9FF;
+  --os-editor-text: #0B1C30;
+  --os-editor-text2: #5E3F38;
+  --os-editor-divider: #D3E4FE;
+}
+
+/* Superficies del editor: el panel se integra con el tema activo de VS Code */
+body.os-surface-editor.vscode-dark,
+body.os-surface-editor.vscode-light {
+  --os-frame: var(--vscode-sideBar-background, var(--os-editor-frame));
+  --os-bg: var(--vscode-editor-background, var(--os-editor-paper));
+  --os-paper: var(--vscode-editor-background, var(--os-editor-paper));
+  --os-head: var(--vscode-editorWidget-background, var(--os-editor-band));
+  --os-input: var(--vscode-input-background, var(--os-editor-input));
+  --os-band: var(--vscode-editorWidget-background, var(--os-editor-band));
+  --os-c2: var(--vscode-list-hoverBackground, var(--os-editor-band));
+  --os-selected: var(--vscode-list-inactiveSelectionBackground, var(--os-editor-selected));
+  --os-text: var(--vscode-foreground, var(--os-editor-text));
+  --os-text2: var(--vscode-descriptionForeground, var(--os-editor-text2));
+  --os-outline: var(--vscode-widget-border, var(--vscode-contrastBorder, #454545));
+  --os-divider: var(--vscode-panel-border, var(--os-editor-divider));
+}
+body.os-surface-editor.vscode-dark { --os-accent-text: #FF6A38; } /* primary.light: ≥ 4,5:1 sobre editores oscuros habituales */
+
+/* Enlaces de lectura: texto + subrayado de acento (dieta de acento local) */
+.markdown-body a {
+  color: var(--os-text);
+  text-decoration: underline;
+  text-decoration-color: var(--os-brand);
+  text-underline-offset: 3px;
+}
+.markdown-body a:hover { color: var(--os-accent-text); }
