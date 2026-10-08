@@ -98,7 +98,13 @@ try {
     assert.equal(await page.getByRole('button', { name: 'Incluir archivo', exact: true }).getAttribute('aria-pressed'), String(expected));
   };
   const graphPoint = id => graphNode(id).evaluate(item => { const point = new DOMPoint(0, 0).matrixTransform(item.getScreenCTM()); return { x: point.x, y: point.y }; });
-  const clickGraphNode = async (id, double = false, delay = 0) => { const point = await graphPoint(id); if (double) await page.mouse.dblclick(point.x, point.y, { delay }); else await page.mouse.click(point.x, point.y); };
+  const clickGraphNode = async (id, double = false, delay = 0) => {
+    // Resolve the visible glyph after resize/layout settles, before the first click.
+    // A single dblclick action keeps both physical clicks and their intended delay.
+    const target = graphNode(id).locator('.graph-shape');
+    if (double) await target.dblclick({ delay });
+    else await target.click();
+  };
   const openCatalog = async () => {
     await page.locator('[data-key="nav:change:catalog-search"]').click();
     await page.waitForFunction(() => window.__viewerState.view === 'change'

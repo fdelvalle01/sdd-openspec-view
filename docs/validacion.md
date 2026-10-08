@@ -50,3 +50,32 @@ interfaz usa un puente de laboratorio; la suite de host usa VS Code real.
 No se garantiza una tasa fija de cuadros por segundo ni aceptación de una HDU.
 La extracción conserva el diseño y comportamiento de la entrega personal 0.3.2.
 La [prueba manual](prueba-manual.md) describe los recorridos para revisiones futuras.
+
+## Sincronización de la prueba UI tras el primer CI
+
+El [primer CI del repositorio independiente](https://github.com/fdelvalle01/sdd-openspec-view/actions/runs/37845848802)
+pasó motor, 110 unitarias y build; la interfaz agotó su espera por la ficha
+después de redimensionar a 600 px. El helper calculaba coordenadas con
+`getScreenCTM()` y las reutilizaba en un click separado, mientras el
+`ResizeObserver` y su frame aún podían cambiar la geometría. No hubo errores
+JavaScript del navegador.
+
+Se reprodujo en un fixture local que demora 100 ms el observer del grafo:
+la posición capturada `(112.78, 435.78)` pasó a `(230, 354)`, y el punto anterior
+ya no correspondía a un nodo. Pulsar esas coordenadas reprodujo el timeout.
+El mismo recorrido pasó al dirigir el click al elemento `.graph-shape`, cuya
+estabilidad y recepción de eventos comprueba Playwright antes de pulsar.
+
+El ajuste cambia únicamente el helper de prueba. Conserva los clicks de ratón,
+el doble click con demoras de 180/240 ms, movimiento normal/reducido y todas las
+aserciones originales. No añade reintentos de casos, pausas fijas ni un timeout
+mayor. La revalidación local pasó **7/7 casos del grafo** con el fixture y
+**31/31 casos de la suite completa**. Las unitarias y el host conservan su
+evidencia previa porque sus fuentes no cambiaron.
+
+Los ensayos rojo/verde y sus logs están en `.local/test-ui-resize-race-red.mjs`,
+`.local/test-ui-resize-race-green.mjs`, `.local/ui-ci-race-red.log`,
+`.local/ui-ci-race-green.log` y `.local/ui-ci-fixed-full.log`. No forman parte
+del producto ni del paquete. El VSIX y `releases/0.3.2.json` siguen intactos y
+vinculados al commit de fuente original; el estado de CI posterior se consulta
+en [GitHub Actions](https://github.com/fdelvalle01/sdd-openspec-view/actions).
