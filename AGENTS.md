@@ -1,12 +1,17 @@
 # Mantenimiento de OpenSpec Viewer
 
-Este repositorio distribuye una extensión de VS Code independiente. Lee
+Este es el repositorio oficial de OpenSpec Viewer. Distribuye una extensión
+de VS Code independiente, con fuente, motor y VSIX propios. SDD Workspace
+mantiene la plantilla S0 y su creador y remite aquí para obtener el visor. Lee
 [README.md](README.md), [validación](docs/validacion.md) y los scripts afectados.
 
 - Conserva `fdelvalle01.openspec-viewer`, comandos y ajustes `sddWorkspaceViewer`
   y los temas existentes. La extracción conserva la versión 0.3.2.
 - Fuente, pruebas, motor y recursos viven en este repositorio. No añadas imports,
   builds ni fixtures que dependan de carpetas hermanas o rutas personales.
+- Mantén aquí las siguientes versiones del visor. La plantilla y su creador
+  viven en SDD Workspace; no los incorpores ni los modifiques como efecto de
+  mantener o empaquetar esta extensión. Su motor se mantiene por separado.
 - `scripts/conocimiento/` es una copia exacta del origen documentado en
   [vendor/conocimiento.json](vendor/conocimiento.json). Para actualizarla,
   identifica y revisa el nuevo origen y actualiza sus hashes deliberadamente.

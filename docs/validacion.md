@@ -51,6 +51,33 @@ No se garantiza una tasa fija de cuadros por segundo ni aceptación de una HDU.
 La extracción conserva el diseño y comportamiento de la entrega personal 0.3.2.
 La [prueba manual](prueba-manual.md) describe los recorridos para revisiones futuras.
 
+## Revisión del repositorio oficial
+
+El 10 de octubre de 2026 se aclaró en README e instrucciones de mantenimiento
+que este repositorio mantiene el visor, su motor y el VSIX, mientras SDD Workspace
+mantiene la plantilla y su creador. La revisión local partió de
+`690a169bef1dfe99292dffd5d2b5be328b0fa6fa`, en Windows con Node.js 24.19.0
+y npm 10.5.2; no cambió el código de ejecución ni la versión 0.3.2.
+
+| Comprobación | Resultado |
+| --- | --- |
+| Motor local | `npm run verify:vendor`: cinco módulos verificados contra SHA256, blobs y árbol registrados. |
+| Distribución independiente | `node --test tests/distribution.test.mjs`: 3/3 aprobadas; motor verificado, inputs del bundle dentro del repositorio y raíz OpenSpec sólo en la demo. |
+| VSIX existente | SHA256 `3e491d91c5e70ca75922ddd20183160d36668d4089d82a13f04ebd3dffd036b0` y tamaño coinciden con `releases/0.3.2.json`; sus 29 entradas coinciden por ruta y tamaño, sin duplicados ni rutas prohibidas. |
+| Contenido del VSIX | Identidad `fdelvalle01.openspec-viewer@0.3.2`, repositorio propio, motor incluido en el bundle del host, bundle de interfaz y demo presentes. Icono, CSS y tokens coinciden con el checkout; lockfile coincide con la procedencia. |
+
+La primera ejecución de la prueba de distribución no pudo iniciar por faltar
+`esbuild`. Tras `npm ci --ignore-scripts --no-audit --no-fund`, limitado a las
+dependencias de este checkout, pasó la repetición. No se instalaron extensiones
+ni herramientas en perfiles personales.
+
+La declaración de repositorio oficial corresponde a la documentación del
+checkout. El VSIX existente conserva los documentos y la procedencia del build
+original de 0.3.2; no se regeneró ni se le atribuyeron estas ediciones. Los hashes,
+registros históricos y archivos de entrega permanecen intactos. Esta revisión
+no repitió las suites completas de unidad, UI o host, no acredita una nueva
+ejecución de CI ni una publicación remota.
+
 ## Sincronización de la prueba UI tras el primer CI
 
 El [primer CI del repositorio independiente](https://github.com/fdelvalle01/sdd-openspec-view/actions/runs/37845848802)

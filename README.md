@@ -1,6 +1,12 @@
-# OpenSpec Viewer · Personal
+# OpenSpec Viewer
 
 Visor local para leer un S0 OpenSpec desde la misma ventana de VS Code donde trabajas con el código. Reúne cambios, especificaciones, contexto e inventario de componentes. Funciona con cualquier sistema y no necesita una cuenta IA, OpenSpec CLI ni un servidor.
+
+Este es el **repositorio oficial de OpenSpec Viewer**: mantiene el fuente del
+visor, su motor de conocimiento vendorizado, las pruebas y el VSIX propio.
+La distribución vigente es **0.3.2**. [SDD Workspace](https://github.com/fdelvalle01/sdd-workspace)
+mantiene la plantilla S0 y su creador, y remite a este repositorio para instalar
+el visor. Las siguientes versiones del visor se mantienen y distribuyen aquí.
 
 ## Instalar y abrir
 
@@ -70,6 +76,9 @@ El fuente vive en la raíz de [sdd-openspec-view](https://github.com/fdelvalle01
 `src/`, `tests/`, `scripts/`, recursos y `package-lock.json`. No requiere
 repositorios vecinos. El motor está vendorizado en `scripts/conocimiento/`;
 su [registro de origen](https://github.com/fdelvalle01/sdd-openspec-view/blob/main/vendor/conocimiento.json) fija commit, árbol y hashes.
+La plantilla externa conserva el motor que necesitan sus propios scripts;
+el Viewer usa y empaqueta su copia local verificada. Actualizar una distribución
+no modifica ni sincroniza automáticamente la otra.
 La [procedencia de 0.3.2](https://github.com/fdelvalle01/sdd-openspec-view/blob/main/releases/0.3.2.json) identifica el paquete construido
 desde este repositorio. Los [registros anteriores](https://github.com/fdelvalle01/sdd-openspec-view/blob/main/docs/history/sdd-workspace/README.md)
 corresponden a SDD Workspace y no acreditan un build de esta distribución.
